@@ -1,0 +1,406 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:DesktopGL
+/config:
+/profile:Reach
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+
+#---------------------------------- Content ---------------------------------#
+
+#begin ../../Assets/Fonts/Debug.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:../../Assets/Fonts/Debug.spritefont;Fonts/Debug.spritefont
+
+#begin ../../Assets/MapImages/BeachMain.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/MapImages/BeachMain.png;MapImages/BeachMain.png
+
+#begin ../../Assets/MapImages/Blocks.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/MapImages/Blocks.png;MapImages/Blocks.png
+
+#begin ../../Assets/MapImages/BlocksHex.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/MapImages/BlocksHex.png;MapImages/BlocksHex.png
+
+#begin ../../Assets/MapImages/Doors.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/MapImages/Doors.png;MapImages/Doors.png
+
+#begin ../../Assets/MapImages/Font.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/MapImages/Font.png;MapImages/Font.png
+
+#begin ../../Assets/MapImages/Game.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/MapImages/Game.png;MapImages/Game.png
+
+#begin ../../Assets/MapImages/Gothic.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/MapImages/Gothic.png;MapImages/Gothic.png
+
+#begin ../../Assets/MapImages/GrassDoodads.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/MapImages/GrassDoodads.png;MapImages/GrassDoodads.png
+
+#begin ../../Assets/MapImages/GrassMain.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/MapImages/GrassMain.png;MapImages/GrassMain.png
+
+#begin ../../Assets/MapImages/Shadows.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/MapImages/Shadows.png;MapImages/Shadows.png
+
+#begin ../../Assets/Maps/Adventure.tmx
+/copy:../../Assets/Maps/Adventure.tmx;Maps/Adventure.tmx
+
+#begin ../../Assets/Maps/Simple.tmx
+/copy:../../Assets/Maps/Simple.tmx;Maps/Simple.tmx
+
+#begin ../../Assets/MapTilesets/BeachMain.tsx
+/copy:../../Assets/MapTilesets/BeachMain.tsx;MapTilesets/BeachMain.tsx
+
+#begin ../../Assets/MapTilesets/Blocks.tsx
+/copy:../../Assets/MapTilesets/Blocks.tsx;MapTilesets/Blocks.tsx
+
+#begin ../../Assets/MapTilesets/BlocksHex.tsx
+/copy:../../Assets/MapTilesets/BlocksHex.tsx;MapTilesets/BlocksHex.tsx
+
+#begin ../../Assets/MapTilesets/Doors.tsx
+/copy:../../Assets/MapTilesets/Doors.tsx;MapTilesets/Doors.tsx
+
+#begin ../../Assets/MapTilesets/Font.tsx
+/copy:../../Assets/MapTilesets/Font.tsx;MapTilesets/Font.tsx
+
+#begin ../../Assets/MapTilesets/Game.tsx
+/copy:../../Assets/MapTilesets/Game.tsx;MapTilesets/Game.tsx
+
+#begin ../../Assets/MapTilesets/Gothic.tsx
+/copy:../../Assets/MapTilesets/Gothic.tsx;MapTilesets/Gothic.tsx
+
+#begin ../../Assets/MapTilesets/GrassDoodads.tsx
+/copy:../../Assets/MapTilesets/GrassDoodads.tsx;MapTilesets/GrassDoodads.tsx
+
+#begin ../../Assets/MapTilesets/GrassMain.tsx
+/copy:../../Assets/MapTilesets/GrassMain.tsx;MapTilesets/GrassMain.tsx
+
+#begin ../../Assets/MapTilesets/Shadows.tsx
+/copy:../../Assets/MapTilesets/Shadows.tsx;MapTilesets/Shadows.tsx
+
+#begin ../../Assets/Sound/Background/Dungeon.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Background/Dungeon.mp3;Sound/Background/Dungeon.mp3
+
+#begin ../../Assets/Sound/Effects/ArrowBoomerang.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/ArrowBoomerang.wav;Sound/Effects/ArrowBoomerang.wav
+
+#begin ../../Assets/Sound/Effects/BombBlow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/BombBlow.wav;Sound/Effects/BombBlow.wav
+
+#begin ../../Assets/Sound/Effects/BombDrop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/BombDrop.wav;Sound/Effects/BombDrop.wav
+
+#begin ../../Assets/Sound/Effects/BossHit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/BossHit.wav;Sound/Effects/BossHit.wav
+
+#begin ../../Assets/Sound/Effects/BossScream1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/BossScream1.wav;Sound/Effects/BossScream1.wav
+
+#begin ../../Assets/Sound/Effects/BossScream2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/BossScream2.wav;Sound/Effects/BossScream2.wav
+
+#begin ../../Assets/Sound/Effects/BossScream3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/BossScream3.wav;Sound/Effects/BossScream3.wav
+
+#begin ../../Assets/Sound/Effects/Candle.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/Candle.wav;Sound/Effects/Candle.wav
+
+#begin ../../Assets/Sound/Effects/DoorUnlock.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/DoorUnlock.wav;Sound/Effects/DoorUnlock.wav
+
+#begin ../../Assets/Sound/Effects/Enemy_Die.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/Enemy_Die.wav;Sound/Effects/Enemy_Die.wav
+
+#begin ../../Assets/Sound/Effects/Enemy_Hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/Enemy_Hit.wav;Sound/Effects/Enemy_Hit.wav
+
+#begin ../../Assets/Sound/Effects/Fanfare.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/Fanfare.wav;Sound/Effects/Fanfare.wav
+
+#begin ../../Assets/Sound/Effects/GetHeart.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/GetHeart.wav;Sound/Effects/GetHeart.wav
+
+#begin ../../Assets/Sound/Effects/GetItem.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/GetItem.wav;Sound/Effects/GetItem.wav
+
+#begin ../../Assets/Sound/Effects/GetRupee.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/GetRupee.wav;Sound/Effects/GetRupee.wav
+
+#begin ../../Assets/Sound/Effects/KeyAppear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/KeyAppear.wav;Sound/Effects/KeyAppear.wav
+
+#begin ../../Assets/Sound/Effects/LinkDie.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/LinkDie.wav;Sound/Effects/LinkDie.wav
+
+#begin ../../Assets/Sound/Effects/LinkHurt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/LinkHurt.wav;Sound/Effects/LinkHurt.wav
+
+#begin ../../Assets/Sound/Effects/LowHealth.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/LowHealth.wav;Sound/Effects/LowHealth.wav
+
+#begin ../../Assets/Sound/Effects/MagicalRod.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/MagicalRod.wav;Sound/Effects/MagicalRod.wav
+
+#begin ../../Assets/Sound/Effects/Recorder.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/Recorder.wav;Sound/Effects/Recorder.wav
+
+#begin ../../Assets/Sound/Effects/RefillLoop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/RefillLoop.wav;Sound/Effects/RefillLoop.wav
+
+#begin ../../Assets/Sound/Effects/Secret.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/Secret.wav;Sound/Effects/Secret.wav
+
+#begin ../../Assets/Sound/Effects/Shield.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/Shield.wav;Sound/Effects/Shield.wav
+
+#begin ../../Assets/Sound/Effects/Shore.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/Shore.wav;Sound/Effects/Shore.wav
+
+#begin ../../Assets/Sound/Effects/Stairs.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/Stairs.wav;Sound/Effects/Stairs.wav
+
+#begin ../../Assets/Sound/Effects/SwordCombined.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/SwordCombined.wav;Sound/Effects/SwordCombined.wav
+
+#begin ../../Assets/Sound/Effects/SwordShoot.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/SwordShoot.wav;Sound/Effects/SwordShoot.wav
+
+#begin ../../Assets/Sound/Effects/SwordSlash.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/SwordSlash.wav;Sound/Effects/SwordSlash.wav
+
+#begin ../../Assets/Sound/Effects/Text.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/Text.wav;Sound/Effects/Text.wav
+
+#begin ../../Assets/Sound/Effects/TextSlow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../../Assets/Sound/Effects/TextSlow.wav;Sound/Effects/TextSlow.wav
+
+#begin ../../Assets/Sprites/Enemies.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/Sprites/Enemies.png;Sprites/Enemies.png
+
+#begin ../../Assets/Sprites/Link.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../Assets/Sprites/Link.png;Sprites/Link.png
+
+#begin Sprites/items2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/items2.png;Sprites/Items.png
+

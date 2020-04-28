@@ -1,0 +1,51 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:DesktopGL
+/config:
+/profile:Reach
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+
+#---------------------------------- Content ---------------------------------#
+
+#begin ../../Assets/Maps/Adventure.tmx
+/copy:../../Assets/Maps/Adventure.tmx;Maps/Adventure.tmx
+
+#begin ../../Assets/Maps/Simple.tmx
+/copy:../../Assets/Maps/Simple.tmx;Maps/Simple.tmx
+
+#begin ../../Assets/MapTilesets/BeachMain.tsx
+/copy:../../Assets/MapTilesets/BeachMain.tsx;MapTilesets/BeachMain.tsx
+
+#begin ../../Assets/MapTilesets/Blocks.tsx
+/copy:../../Assets/MapTilesets/Blocks.tsx;MapTilesets/Blocks.tsx
+
+#begin ../../Assets/MapTilesets/BlocksHex.tsx
+/copy:../../Assets/MapTilesets/BlocksHex.tsx;MapTilesets/BlocksHex.tsx
+
+#begin ../../Assets/MapTilesets/Doors.tsx
+/copy:../../Assets/MapTilesets/Doors.tsx;MapTilesets/Doors.tsx
+
+#begin ../../Assets/MapTilesets/Font.tsx
+/copy:../../Assets/MapTilesets/Font.tsx;MapTilesets/Font.tsx
+
+#begin ../../Assets/MapTilesets/Game.tsx
+/copy:../../Assets/MapTilesets/Game.tsx;MapTilesets/Game.tsx
+
+#begin ../../Assets/MapTilesets/Gothic.tsx
+/copy:../../Assets/MapTilesets/Gothic.tsx;MapTilesets/Gothic.tsx
+
+#begin ../../Assets/MapTilesets/GrassDoodads.tsx
+/copy:../../Assets/MapTilesets/GrassDoodads.tsx;MapTilesets/GrassDoodads.tsx
+
+#begin ../../Assets/MapTilesets/GrassMain.tsx
+/copy:../../Assets/MapTilesets/GrassMain.tsx;MapTilesets/GrassMain.tsx
+
+#begin ../../Assets/MapTilesets/Shadows.tsx
+/copy:../../Assets/MapTilesets/Shadows.tsx;MapTilesets/Shadows.tsx
+

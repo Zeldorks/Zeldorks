@@ -1,0 +1,3 @@
+[submodule "TiledSharp"]
+	path = TiledSharp
+	url = https://github.com/marshallward/TiledSharp

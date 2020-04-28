@@ -1,0 +1,3 @@
+../AutomapRules/GrassMain/Dirt/InnerCorners.tmx
+../AutomapRules/GrassMain/Dirt/Corners.tmx
+../AutomapRules/GrassMain/Dirt/Edges.tmx

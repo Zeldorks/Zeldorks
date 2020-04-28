@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{A6B70DBF-7C8D-4C2C-B1DD-5F5B91271B6B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csproj", "{8221FB81-6DE8-4C14-A78B-127400B53569}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Shared", "Shared\Shared.shproj", "{C5A11E55-2445-4CAD-B495-028E954D82EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{49BAC322-E8C5-4C94-9F96-C1655E8C1E55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TiledSharp", "TiledSharp\TiledSharp\TiledSharp.csproj", "{E81EC86C-497A-48EE-BD7D-34013C60EABE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A0664681-2989-443E-9481-812A3E0894F8}"
+	ProjectSection(SolutionItems) = preProject
+		Graph.dgml = Graph.dgml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Shared\Shared.projitems*{49bac322-e8c5-4c94-9f96-c1655e8c1e55}*SharedItemsImports = 5
+		Shared\Shared.projitems*{8221fb81-6de8-4c14-a78b-127400b53569}*SharedItemsImports = 5
+		Shared\Shared.projitems*{a6b70dbf-7c8d-4c2c-b1dd-5f5b91271b6b}*SharedItemsImports = 5
+		Shared\Shared.projitems*{c5a11e55-2445-4cad-b495-028e954d82eb}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6B70DBF-7C8D-4C2C-B1DD-5F5B91271B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6B70DBF-7C8D-4C2C-B1DD-5F5B91271B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6B70DBF-7C8D-4C2C-B1DD-5F5B91271B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6B70DBF-7C8D-4C2C-B1DD-5F5B91271B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8221FB81-6DE8-4C14-A78B-127400B53569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8221FB81-6DE8-4C14-A78B-127400B53569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8221FB81-6DE8-4C14-A78B-127400B53569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8221FB81-6DE8-4C14-A78B-127400B53569}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49BAC322-E8C5-4C94-9F96-C1655E8C1E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49BAC322-E8C5-4C94-9F96-C1655E8C1E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49BAC322-E8C5-4C94-9F96-C1655E8C1E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49BAC322-E8C5-4C94-9F96-C1655E8C1E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E81EC86C-497A-48EE-BD7D-34013C60EABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E81EC86C-497A-48EE-BD7D-34013C60EABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E81EC86C-497A-48EE-BD7D-34013C60EABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E81EC86C-497A-48EE-BD7D-34013C60EABE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE4B0F57-5BF2-43BC-848D-C8DDAE91BE13}
+	EndGlobalSection
+EndGlobal
