@@ -5,12 +5,14 @@ using Comps = NetGameShared.Ecs.Components;
 
 using NetGameShared.Util.Physical;
 using static NetGameShared.Util.Physical.Collision;
+using static NetGameShared.Ecs.Components.Orientations.Cardinal;
 using static NetGameShared.Maps.Util;
 
 using Rectangle = NetGameShared.Util.Physical.Rectangle;
 using PhysicalVector2 = Microsoft.Xna.Framework.Vector2;
 
 using GameTile = NetGameShared.Maps.Tiles.Game;
+using NetGameShared.Ecs.Components;
 
 namespace NetGameShared.Ecs.Systems.Collision
 {
@@ -62,6 +64,7 @@ namespace NetGameShared.Ecs.Systems.Collision
             // also have these components:
             // - `Position`
             // - `Shape.Rectangle`
+            // - `Orientation.Cardinal`
             List<Entity> entities = registry.GetEntitiesList(typeof(Comps.Solid));
 
             // Queue entities to remove so we aren't removing entities while
@@ -80,17 +83,19 @@ namespace NetGameShared.Ecs.Systems.Collision
                     switch (gameTile.kind)
                     {
                         case GameTile.Kind.Solid:
+                            var entityOrientation = registry.GetComponentUnsafe<Comps.Orientations.Cardinal>(entity);
+                            var entitySolid = registry.GetComponentUnsafe<Comps.Solid>(entity);
+
                             var tilePos = GetTilePosition(map, index);
                             var tileRect = new Rectangle(
                                 map.TileWidth,
                                 map.TileHeight
                             );
-
                             if (CheckCollision(
-                                entityRect.data, entityPos.data,
-                                tileRect, tilePos
-                            )) {
-                                var entitySolid = registry.GetComponentUnsafe<Comps.Solid>(entity);
+                                entityRect.data, entityPos.data, entityOrientation.data,
+                                tileRect, tilePos, Util.Physical.Orientation.Cardinal.Right
+                            ))
+                            {
                                 HandleCollision(
                                     registry, toRemove,
                                     entity, entitySolid, entityPos, entityRect,

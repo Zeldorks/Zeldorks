@@ -15,9 +15,28 @@ namespace NetGameShared.Util.Physical
         public static bool CheckCollision(
             Rectangle rectangle1,
             PhysicalVector2 position1,
+            Orientation.Cardinal cardinal1,
             Rectangle rectangle2,
-            PhysicalVector2 position2
+            PhysicalVector2 position2,
+            Orientation.Cardinal cardinal2
          ) {
+
+            var copyPos1 = position1;
+            var copyPos2 = position2;
+
+            if (cardinal1 == Orientation.Cardinal.Up || cardinal1 == Orientation.Cardinal.Down)
+            {
+                var temp = copyPos1.X;
+                copyPos1.X = copyPos1.Y;
+                copyPos1.Y = temp;
+            }
+
+            if (cardinal2 == Orientation.Cardinal.Up || cardinal2 == Orientation.Cardinal.Down)
+            {
+                var temp = copyPos2.X;
+                copyPos2.X = copyPos2.Y;
+                copyPos2.Y = temp;
+            }  
             var posRect1 = new PosRectangle(position1, rectangle1);
             var posRect2 = new PosRectangle(position2, rectangle2);
 

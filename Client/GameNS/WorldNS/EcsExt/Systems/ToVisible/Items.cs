@@ -17,11 +17,11 @@ namespace NetGameClient.GameNS.WorldNS.EcsExt.Systems.ToVisible
 {
     public class Items
     {
-        private static VisibleComp CreateVisibleComp(
-            ItemComp itemComp,
+        public static VisibleComp CreateVisibleComp(
+            ItemKind kind,
             ContentManager contentManager
         ) {
-            switch (itemComp.kind) {
+            switch (kind) {
                 case ItemKind.Compass:
                     return new VisibleComp {
                         texture = contentManager.Load<Texture2D>("Sprites/Items"),
@@ -31,7 +31,7 @@ namespace NetGameClient.GameNS.WorldNS.EcsExt.Systems.ToVisible
                 case ItemKind.Heart:
                     return new VisibleComp {
                         texture = contentManager.Load<Texture2D>("Sprites/Items"),
-                        texturePosRectangle = new DrawingPosRectangle(16 * 3, 0, 16, 16),
+                        texturePosRectangle = new DrawingPosRectangle(16 * 6, 0, 16, 16),
                         destRectangle = new Drawing.Rectangle(16 * 4, 16 * 4)
                     };
                 case ItemKind.Bomb:
@@ -59,7 +59,7 @@ namespace NetGameClient.GameNS.WorldNS.EcsExt.Systems.ToVisible
                     return new VisibleComp
                     {
                         texture = contentManager.Load<Texture2D>("Sprites/Items"),
-                        texturePosRectangle = new DrawingPosRectangle(84, 0, 16, 16),
+                        texturePosRectangle = new DrawingPosRectangle(80, 0, 16, 16),
                         destRectangle = new Drawing.Rectangle(16 * 4, 16 * 4)
                     };
                 case ItemKind.Rupee:
@@ -154,7 +154,7 @@ namespace NetGameClient.GameNS.WorldNS.EcsExt.Systems.ToVisible
                     .GetComponentUnsafe<ItemComp>(entity);
 
                 VisibleComp sprite = CreateVisibleComp(
-                    itemComp,
+                    itemComp.kind,
                     contentManager
                 );
 

@@ -31,12 +31,19 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
             );
 
             registry.AssignComponent(
+               result,
+               new Comps.Orientations.Cardinal
+               {
+                   data = Physical.Orientation.Cardinal.Right
+               }
+           );
+
+            registry.AssignComponent(
                 result,
                 new Comps.Shapes.Rectangle {
                     data = new Physical.Rectangle(32.0f * 6, 32.0f * 2)
                 }
             );
-
             return result;
         }
     }

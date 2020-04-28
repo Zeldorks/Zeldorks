@@ -190,13 +190,13 @@ namespace NetGameServer.Net
             Packets.GameSnapshot gameSnapshot
         ) {
             // TODO: Use `DeliveryMethod.Unreliable`.
-            // Currently it's `ReliableOrdered` because LiteNetLib provides
+            // Currently it's `ReliableUnordered` because LiteNetLib provides
             // automatic fragmentation for large packets if it uses a reliable
             // delivery method.
             packetProcessor.Send(
                 clients[clientId].netPeer,
                 gameSnapshot,
-                DeliveryMethod.ReliableOrdered
+                DeliveryMethod.ReliableUnordered
             );
         }
 

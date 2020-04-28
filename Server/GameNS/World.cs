@@ -42,9 +42,12 @@ namespace NetGameServer.GameNS
 
             Ecs.Systems.Collision.UnlockDoor.Run(ecsRegistry);
 
+            Ecs.Systems.Collision.EnemyHitsPlayer.Run(ecsRegistry);
+
             // Process damage
             EcsExt.Systems.Death.Run(ecsRegistry, game);
-            ecsRegistry.ClearComponent(typeof(Comps.Damaged));
+            EcsExt.Systems.DeathByNPC.Run(ecsRegistry, game);
+            ecsRegistry.ClearComponent(typeof(Comps.DamagedByPlayer));
 
             Ecs.Systems.Collision.SolidToSolid.Run(ecsRegistry);
 

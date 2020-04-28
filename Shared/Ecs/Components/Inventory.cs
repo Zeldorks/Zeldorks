@@ -109,7 +109,7 @@ namespace NetGameShared.Ecs.Components
                     case Item.Kind.Heart:
                         data[itemKind] = new StorageInfo {
                             Count = 1,
-                            maxCountOpt = 10.Some()
+                            maxCountOpt = 6.Some()
                         };
                         break;
                     case Item.Kind.Rupee:
@@ -119,6 +119,7 @@ namespace NetGameShared.Ecs.Components
                         };
                         break;
                     case Item.Kind.Bow:
+                    case Item.Kind.Boomerang:
                     case Item.Kind.Sword:
                     case Item.Kind.RedKey:
                     case Item.Kind.BlueKey:

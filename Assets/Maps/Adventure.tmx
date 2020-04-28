@@ -3086,5 +3086,8 @@
   <object id="380" type="TriforceDestination" x="8480" y="13544">
    <point/>
   </object>
+  <object id="46" type="ItemBoomerang" x="8893.4" y="7512.09">
+   <point/>
+  </object>
  </objectgroup>
 </map>

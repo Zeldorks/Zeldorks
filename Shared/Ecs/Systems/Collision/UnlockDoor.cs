@@ -46,6 +46,7 @@ namespace NetGameShared.Ecs.Systems.Collision
             // components:
             // - `Position`
             // - `Shape.Rectangle`
+            // - `Orientation.Cardinal`
             List<Entity> projectileEntities = registry.GetEntitiesList(typeof(Comps.Projectile));
             List<Entity> doorEntities = registry.GetEntitiesList(typeof(Comps.Door));
 
@@ -66,15 +67,17 @@ namespace NetGameShared.Ecs.Systems.Collision
                     }
 
                     var projectileRectangle = registry.GetComponentUnsafe<Comps.Shapes.Rectangle>(projectileEntity);
+                    var projectileOrientation = registry.GetComponentUnsafe<Comps.Orientations.Cardinal>(projectileEntity);
                     var projectile = registry.GetComponentUnsafe<Comps.Projectile>(projectileEntity);
 
                     var doorRectangle = registry.GetComponentUnsafe<Comps.Shapes.Rectangle>(doorEntity);
+                    var doorOrientation = registry.GetComponentUnsafe<Comps.Orientations.Cardinal>(doorEntity);
                     var door = registry.GetComponentUnsafe<Comps.Door>(doorEntity);
 
                     if (CanUnlock(projectile.kind, door.kind) &&
                         CheckCollision(
-                            doorRectangle.data, doorPosition.data,
-                            projectileRectangle.data, projectilePosition.data
+                            doorRectangle.data, doorPosition.data, doorOrientation.data,
+                            projectileRectangle.data, projectilePosition.data, projectileOrientation.data
                         )
                     ) {
                         toRemove.Enqueue(doorEntity);

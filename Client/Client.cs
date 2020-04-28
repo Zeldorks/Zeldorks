@@ -25,6 +25,13 @@ namespace NetGameClient
         private NetClient netClient;
         private InputSources.Keyboard keyboard;
         private Option<Game> game;
+        private Texture2D Titlescreen;
+        private Texture2D prologue;
+        private int mAlphaValue = 0;
+        private int mFadeIncrement = 5;
+        private double mFadeDelay = .055;
+        private int track = 0;
+        private int currentTitle = 0;
 
         private SpriteFont debugFont;
 
@@ -238,6 +245,8 @@ namespace NetGameClient
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             debugFont = Content.Load<SpriteFont>("Fonts/Debug");
+            Titlescreen = Content.Load<Texture2D>("UI/titlescreenWtext");
+            prologue = Content.Load<Texture2D>("UI/Prologue");
         }
 
         private void ProcessState()
@@ -407,6 +416,31 @@ namespace NetGameClient
 
             game.MatchSome(game => game.Update());
 
+            // Decrement the delay by the number of seconds that have elapsed since
+            // the last time that the Update method was called
+            mFadeDelay -= gameTime.ElapsedGameTime.TotalSeconds;
+
+            // If the Fade delays has dropped below zero, then it is time to 
+            // fade out the image a little bit more.
+            if (mFadeDelay <= 0)
+            {
+                // Reset the Fade delay
+                mFadeDelay = .5;
+
+                //Decrement the fade value for the image
+                mAlphaValue -= mFadeIncrement;
+                track++;
+
+                mFadeDelay -= 0.1;
+                mFadeIncrement += (1 / 2);
+                if (track <= 5)
+                {
+                    mFadeDelay = 1.5;
+                    mFadeIncrement = 100;
+                    mAlphaValue = 255;
+                }
+            }
+
             base.Update(gameTime);
 
             keyboard.PreUpdate();
@@ -423,38 +457,32 @@ namespace NetGameClient
                 null, null, null, null
 			);
 
-            switch (state) {
+            switch (state)
+            {
                 case State.Offline:
-                    spriteBatch.DrawString(
-                        debugFont,
-                        "Offline",
-                        new Vector2(10.0f, 10.0f),
-                        Color.Black
+                    spriteBatch.Draw(
+                        Titlescreen,
+                        new Rectangle(
+                        0, 0, GraphicsDevice.Viewport.Width,
+                        GraphicsDevice.Viewport.Height),
+                        Color.White
+                    );
+                    spriteBatch.Draw(prologue,
+                        new Rectangle(0, 0,
+                        GraphicsDevice.Viewport.Width,
+                        GraphicsDevice.Viewport.Height),
+                    new Color(
+                        Math.Clamp(mAlphaValue, 0, 255),
+                        Math.Clamp(mAlphaValue, 0, 255),
+                        Math.Clamp(mAlphaValue, 0, 255),
+                        Math.Clamp(mAlphaValue, 0, 255))
                     );
                     break;
                 case State.Connecting:
-                    spriteBatch.DrawString(
-                        debugFont,
-                        "Connecting",
-                        new Vector2(10.0f, 10.0f),
-                        Color.Black
-                    );
-                    break;
                 case State.Loading:
-                    spriteBatch.DrawString(
-                        debugFont,
-                        "Loading",
-                        new Vector2(10.0f, 10.0f),
-                        Color.Black
-                    );
                     break;
                 case State.Online:
-                    game.MatchSome(game => game.world.Draw(spriteBatch, Content));
-                    spriteBatch.DrawString(
-                        debugFont,
-                        "Online",
-                        new Vector2(10.0f, 10.0f),
-                        Color.Black
+                    game.MatchSome(game => game.world.Draw(spriteBatch, Content)
                     );
                     break;
             }

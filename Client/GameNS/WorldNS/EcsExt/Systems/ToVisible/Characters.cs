@@ -22,20 +22,48 @@ namespace NetGameClient.GameNS.WorldNS.EcsExt.Systems.ToVisible
             Comps.Orientations.Cardinal orientationComp,
             ContentManager contentManager
         ) {
+            Texture2D linkSheet = contentManager.Load<Texture2D>("Sprites/Link");
             switch (characterComp.kind) {
+                case Comps.Character.Kind.OrangeLink:
+                    linkSheet = contentManager.Load<Texture2D>("Sprites/OrangeLink");
+                    goto case Comps.Character.Kind.Link;
+                case Comps.Character.Kind.PinkLink:
+                    linkSheet = contentManager.Load<Texture2D>("Sprites/PinkLink");
+                    goto case Comps.Character.Kind.Link;
+                case Comps.Character.Kind.BlackLink:
+                    linkSheet = contentManager.Load<Texture2D>("Sprites/BlackLink");
+                    goto case Comps.Character.Kind.Link;
+                case Comps.Character.Kind.BlueLink:
+                    linkSheet = contentManager.Load<Texture2D>("Sprites/BlueLink");
+                    goto case Comps.Character.Kind.Link;
+                case Comps.Character.Kind.PurpleLink:
+                    linkSheet = contentManager.Load<Texture2D>("Sprites/PurpleLink");
+                    goto case Comps.Character.Kind.Link;
+                case Comps.Character.Kind.RedLink:
+                    linkSheet = contentManager.Load<Texture2D>("Sprites/RedLink");
+                    goto case Comps.Character.Kind.Link;
+                case Comps.Character.Kind.TealLink:
+                    linkSheet = contentManager.Load<Texture2D>("Sprites/TealLink");
+                    goto case Comps.Character.Kind.Link;
+                case Comps.Character.Kind.YellowLink:
+                    linkSheet = contentManager.Load<Texture2D>("Sprites/YellowLink");
+                    goto case Comps.Character.Kind.Link;
+                case Comps.Character.Kind.WhiteLink:
+                    linkSheet = contentManager.Load<Texture2D>("Sprites/WhiteLink");
+                    goto case Comps.Character.Kind.Link;
                 case Comps.Character.Kind.Link:
                     switch (orientationComp.data) {
                         case Physical.Orientation.Cardinal.Up:
                             if (characterComp.attacking) {
                                 return new CompsExt.Visibles.Sprite {
-                                    texture = contentManager.Load<Texture2D>("Sprites/Link"),
+                                    texture = linkSheet,
                                     texturePosRectangle = new DrawingPosRectangle(16 * 1, 16 * 3, 16, 16 * 2),
                                     destRectangle = new Drawing.Rectangle(16 * 4, 16 * 8),
                                     destOffset = new DrawingVector(0, 16) // TODO: Why does this value work?
                                 };
                             } else {
                                 return new CompsExt.Visibles.Sprite {
-                                    texture = contentManager.Load<Texture2D>("Sprites/Link"),
+                                    texture = linkSheet,
                                     texturePosRectangle = new DrawingPosRectangle(32, 32, 16, 16),
                                     destRectangle = new Drawing.Rectangle(16 * 4, 16 * 4)
                                 };
@@ -43,14 +71,14 @@ namespace NetGameClient.GameNS.WorldNS.EcsExt.Systems.ToVisible
                         case Physical.Orientation.Cardinal.Left:
                             if (characterComp.attacking) {
                                 return new CompsExt.Visibles.Sprite {
-                                    texture = contentManager.Load<Texture2D>("Sprites/Link"),
+                                    texture = linkSheet,
                                     texturePosRectangle = new DrawingPosRectangle(16 * 2, 16, 16 * 2, 16),
                                     destRectangle = new Drawing.Rectangle(16 * 8, 16 * 4),
                                     destOffset = new DrawingVector(16, 0) // TODO: Why does this value work?
                                 };
                             } else {
                                 return new CompsExt.Visibles.Sprite {
-                                    texture = contentManager.Load<Texture2D>("Sprites/Link"),
+                                    texture = linkSheet,
                                     texturePosRectangle = new DrawingPosRectangle(8 * 16, 16, 16, 16),
                                     destRectangle = new Drawing.Rectangle(16 * 4, 16 * 4)
                                 };
@@ -58,14 +86,14 @@ namespace NetGameClient.GameNS.WorldNS.EcsExt.Systems.ToVisible
                         case Physical.Orientation.Cardinal.Down:
                             if (characterComp.attacking) {
                                 return new CompsExt.Visibles.Sprite {
-                                    texture = contentManager.Load<Texture2D>("Sprites/Link"),
+                                    texture = linkSheet,
                                     texturePosRectangle = new DrawingPosRectangle(16 * 7, 16 * 2, 16, 16 * 2),
                                     destRectangle = new Drawing.Rectangle(16 * 4, 16 * 8),
                                     destOffset = new DrawingVector(0, -16) // TODO: Why does this value work?
                                 };
                             } else {
                                 return new CompsExt.Visibles.Sprite {
-                                    texture = contentManager.Load<Texture2D>("Sprites/Link"),
+                                    texture = linkSheet,
                                     texturePosRectangle = new DrawingPosRectangle(0, 32, 16, 16),
                                     destRectangle = new Drawing.Rectangle(16 * 4, 16 * 4)
                                 };
@@ -73,14 +101,14 @@ namespace NetGameClient.GameNS.WorldNS.EcsExt.Systems.ToVisible
                         case Physical.Orientation.Cardinal.Right:
                             if (characterComp.attacking) {
                                 return new CompsExt.Visibles.Sprite {
-                                    texture = contentManager.Load<Texture2D>("Sprites/Link"),
+                                    texture = linkSheet,
                                     texturePosRectangle = new DrawingPosRectangle(16 * 4, 0, 16 * 2, 16),
                                     destRectangle = new Drawing.Rectangle(16 * 8, 16 * 4),
                                     destOffset = new DrawingVector(-16, 0) // TODO: Why does this value work?
                                 };
                             } else {
                                 return new CompsExt.Visibles.Sprite {
-                                    texture = contentManager.Load<Texture2D>("Sprites/Link"),
+                                    texture = linkSheet,
                                     texturePosRectangle = new DrawingPosRectangle(8 * 16, 0, 16, 16),
                                     destRectangle = new Drawing.Rectangle(16 * 4, 16 * 4)
                                 };
@@ -101,7 +129,7 @@ namespace NetGameClient.GameNS.WorldNS.EcsExt.Systems.ToVisible
                         case Physical.Orientation.Cardinal.Right:
                             return new CompsExt.Visibles.Sprite {
                                 texture = contentManager.Load<Texture2D>("Sprites/Enemies"),
-                                texturePosRectangle = new DrawingPosRectangle(0, 32, 32, 32),
+                                texturePosRectangle = new DrawingPosRectangle(5, 32, 30, 32),
                                 destRectangle = new Drawing.Rectangle(32 * 4, 32 * 4)
                             };
                         default:

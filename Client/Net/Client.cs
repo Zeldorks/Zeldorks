@@ -207,7 +207,7 @@ namespace NetGameClient.Net
                 packetProcessor.Send<Packets.GameInput>(
                     server,
                     gameInput,
-                    DeliveryMethod.ReliableOrdered
+                    DeliveryMethod.ReliableUnordered
                 );
             });
         }

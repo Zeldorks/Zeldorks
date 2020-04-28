@@ -28,6 +28,7 @@ namespace NetGameShared.Ecs.Systems.Collision
             // components:
             // - `Position`
             // - `Shape.Rectangle`
+            // - `Orientation.Cardinal`
             List<Entity> itemEntities = registry.GetEntitiesList(typeof(Comps.Item));
             List<Entity> entities = registry.GetEntitiesList(typeof(Comps.Inventory));
 
@@ -47,10 +48,11 @@ namespace NetGameShared.Ecs.Systems.Collision
 
                     var itemRectangleComp = registry.GetComponentUnsafe<Comps.Shapes.Rectangle>(itemEntity);
                     var rectangleComp = registry.GetComponentUnsafe<Comps.Shapes.Rectangle>(entity);
+                    var orientationComp = registry.GetComponentUnsafe<Comps.Orientations.Cardinal>(entity);
 
                     bool hasCollision = CheckCollision(
-                        itemRectangleComp.data, itemPositionComp.data,
-                        rectangleComp.data, positionComp.data
+                        itemRectangleComp.data, itemPositionComp.data, Util.Physical.Orientation.Cardinal.Right,
+                        rectangleComp.data, positionComp.data, orientationComp.data
                     );
 
                     if (hasCollision) {

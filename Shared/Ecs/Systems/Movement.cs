@@ -3,6 +3,7 @@ using NetGameShared.Net.Protocol.GameInputs;
 using GameInputs = NetGameShared.Net.Protocol.GameInputs;
 using PositionComp = NetGameShared.Ecs.Components.Position;
 using VelocityComp = NetGameShared.Ecs.Components.Velocity;
+using ReturnVelocityComp = NetGameShared.Ecs.Components.ReturnVelocity;
 using static NetGameShared.Util.Physical.Rounding;
 
 namespace NetGameShared.Ecs.Systems
@@ -29,7 +30,10 @@ namespace NetGameShared.Ecs.Systems
                 typeof(PositionComp),
                 typeof(VelocityComp)
             );
-
+            HashSet<Entity> boomerangEntities = registry.GetEntities(
+                typeof(PositionComp),
+                typeof(ReturnVelocityComp)
+            );
             foreach (Entity entity in entities) {
                 VelocityComp velocityComp = registry
                     .GetComponentUnsafe<VelocityComp>(entity);
@@ -42,6 +46,51 @@ namespace NetGameShared.Ecs.Systems
                 velocityComp.data = RoundIfZero(velocityComp.data);
 
                 positionComp.data += velocityComp.data;
+            }
+
+            foreach (Entity boomerangEntity in boomerangEntities)
+            {
+                VelocityComp velocityComp = registry
+                    .GetComponentUnsafe<VelocityComp>(boomerangEntity);
+
+                PositionComp positionComp = registry
+                    .GetComponentUnsafe<PositionComp>(boomerangEntity);
+
+                // Decay velocity to simulate friction
+                positionComp.data += velocityComp.data;
+                velocityComp.data *= velocityComp.decay;
+
+                velocityComp.data = RoundIfZero(velocityComp.data);
+                if (velocityComp.data.X < .05 && velocityComp.data.Y == 0 && velocityComp.data.X > 0)
+                {
+                    velocityComp.data.X = -.08f;
+
+                    velocityComp.decay = 1.05f;
+
+                }
+                else if (velocityComp.data.X > -.05 && velocityComp.data.Y == 0 && velocityComp.data.X < 0)
+                {
+                    velocityComp.data.X = .08f;
+
+                    velocityComp.decay = 1.05f;
+
+                }
+
+                else if (velocityComp.data.X == 0 && velocityComp.data.Y < .05 && velocityComp.data.Y>0)
+                {
+
+                    velocityComp.data.Y = -.08f;
+                    velocityComp.decay = 1.05f;
+
+                }
+
+               else if (velocityComp.data.X == 0 && velocityComp.data.Y > -.05 && velocityComp.data.Y < 0)
+                {
+
+                    velocityComp.data.Y = .08f;
+                    velocityComp.decay = 1.05f;
+
+                }
             }
         }
     }

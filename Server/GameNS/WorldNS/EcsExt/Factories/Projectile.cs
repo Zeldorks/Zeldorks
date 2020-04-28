@@ -19,11 +19,13 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
             Physical.PosRectangle playerPosRectangle,
             Physical.Orientation.Cardinal orientation,
             Physical.Rectangle rectangle
-        ) {
+        )
+        {
             PhysicalVector2 result =
                 playerPosRectangle.GetCenteredBound(orientation);
 
-            switch (orientation) {
+            switch (orientation)
+            {
                 case Physical.Orientation.Cardinal.Left:
                     result.X -= (rectangle.Width / 2);
                     break;
@@ -43,8 +45,10 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
 
         public static float GetStartingSpeed(
             Comps.Projectile.Kind kind
-        ) {
-            switch (kind) {
+        )
+        {
+            switch (kind)
+            {
                 case Comps.Projectile.Kind.Arrow:
                     return Global.config.ArrowSpeed;
                 case Comps.Projectile.Kind.Bomb:
@@ -92,6 +96,8 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
                 case Comps.Projectile.Kind.YellowKey:
                 case Comps.Projectile.Kind.SwordSlash:
                     return 1;
+                case Comps.Projectile.Kind.Boomerang:
+                    return 200;
                 default:
                     return ToTicks(TimeSpan.FromSeconds(2));
             }
@@ -101,7 +107,8 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
             Comps.Projectile.Kind kind,
             Entity owner,
             Ecs.Registry registry
-        ) {
+        )
+        {
             // Assume that `owner` has position and orientation
             // components
 
@@ -120,12 +127,57 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
             );
 
             // Create projectile
-
-            Physical.Rectangle rectangle = new Physical.Rectangle(
-                16.0f * 4,
-                16.0f * 4
-            );
-
+            Physical.Rectangle rectangle;
+            switch (kind) {
+                case Comps.Projectile.Kind.Arrow: 
+                    rectangle = new Physical.Rectangle(
+                        16.0f * 4,
+                        5.0f * 4
+                    );
+                    break;
+                case Comps.Projectile.Kind.SilverArrow:
+                    rectangle = new Physical.Rectangle(
+                        16.0f * 4,
+                        5.0f * 4
+                    );
+                    break;
+                case Comps.Projectile.Kind.Bomb:
+                    rectangle = new Physical.Rectangle(
+                        14.0f * 4,
+                        8.0f * 4
+                    );
+                    break;
+                case Comps.Projectile.Kind.Boomerang:
+                    rectangle = new Physical.Rectangle(
+                        8.0f * 4,
+                        5.0f * 4
+                    );
+                    break;
+                case Comps.Projectile.Kind.MagicalBoomerang:
+                    rectangle = new Physical.Rectangle(
+                        8.0f * 4,
+                        5.0f * 4
+                    );
+                    break;
+                case Comps.Projectile.Kind.Sword:
+                    rectangle = new Physical.Rectangle(
+                        16.0f * 4,
+                        7.0f * 4
+                    );
+                    break;
+                case Comps.Projectile.Kind.WhiteSword:
+                    rectangle = new Physical.Rectangle(
+                        16.0f * 4,
+                        7.0f * 4
+                    );
+                    break;
+                default:
+                    rectangle = new Physical.Rectangle(
+                        16.0f * 4,
+                        16.0f * 4
+                    );
+                    break;
+            }   
             PhysicalVector2 position = GetStartingPosition(
                 playerPosRectangle,
                 playerOrientationComp.data,
@@ -136,7 +188,8 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
 
             registry.AssignComponent(
                 projectileEntity,
-                new Comps.Shapes.Rectangle {
+                new Comps.Shapes.Rectangle
+                {
                     data = rectangle
                 }
             );
@@ -154,18 +207,44 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
             PhysicalVector2 velocity =
                 playerOrientationComp.data.GetPhysicalVector2() *
                 GetStartingSpeed(kind);
+            
+            if (kind != Comps.Projectile.Kind.Boomerang)
+            {
+                registry.AssignComponent(
+               projectileEntity,
+               new Comps.Velocity
+               {
+                   data = velocity,
+                   decay = 1.0f
+               }
+               );
 
+            }
+            else
+            {
+                registry.AssignComponent(
+               projectileEntity,
+               new Comps.Velocity
+               {
+                   data = velocity,
+                   decay = .95f
+               }
+               );
+            
+            registry.AssignComponent(
+               projectileEntity,
+               new Comps.ReturnVelocity
+               {
+                   data = velocity,
+                   decay = .95f
+               }
+               );
+
+            }
             registry.AssignComponent(
                 projectileEntity,
-                new Comps.Velocity {
-                    data = velocity,
-                    decay = 1.0f
-                }
-            );
-
-            registry.AssignComponent(
-                projectileEntity,
-                new Comps.Projectile {
+                new Comps.Projectile
+                {
                     kind = kind,
                     ownerId = owner.id
                 }
@@ -192,8 +271,8 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
                 projectileEntity,
                 new Comps.Solid { ephemeral = true }
             );
-
             return projectileEntity;
         }
+        }
     }
-}
+

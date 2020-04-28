@@ -157,6 +157,7 @@ namespace NetGameClient.GameNS.WorldNS.MapsExt
                 tint = Color.White,
                 effects = effects
             };
+            int starttime = DateTime.Now.Millisecond;
             EcsExt.Systems.SpriteRender.Render(
                 sprite,
                 position,
@@ -199,6 +200,7 @@ namespace NetGameClient.GameNS.WorldNS.MapsExt
                 destRectangle = destRectangle,
                 tint = Color.White
             };
+
             EcsExt.Systems.SpriteRender.Render(
                 sprite,
                 position,

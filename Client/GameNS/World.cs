@@ -15,6 +15,7 @@ using Packets = NetGameShared.Net.Protocol.Packets;
 
 using ClientId = System.Int32;
 
+
 namespace NetGameClient.GameNS
 {
     public class World
@@ -87,6 +88,9 @@ namespace NetGameClient.GameNS
             EcsExt.Systems.ToVisible.Items.Run(ecsRegistry, contentManager);
             EcsExt.Systems.ToVisible.Doors.Run(ecsRegistry, contentManager);
             EcsExt.Systems.SpriteRender.Run(ecsRegistry, spriteBatch, camera);
+            playerEntityOpt.MatchSome(playerEntity => EcsExt.Systems.HUD.Run
+                (playerEntity, ecsRegistry, contentManager, spriteBatch)
+            );
         }
     }
 }

@@ -68,6 +68,7 @@ namespace NetGameShared.Ecs.Systems.Collision
             // also have these components:
             // - `Position`
             // - `Shape.Rectangle`
+            // - `Orientation.Cardinal`
             List<Entity> entities1 = registry.GetEntitiesList(typeof(Comps.Solid));
 
             // Use a `HashSet` to make removing entities O(1)
@@ -80,6 +81,9 @@ namespace NetGameShared.Ecs.Systems.Collision
             foreach (Ecs.Entity entity1 in entities1)
             {
                 var entity1Pos = registry.GetComponentUnsafe<Comps.Position>(entity1);
+
+                var entity1Orientation = registry
+                    .GetComponentUnsafe<Comps.Orientations.Cardinal>(entity1);
 
                 foreach (Ecs.Entity entity2 in entities2)
                 {
@@ -94,10 +98,13 @@ namespace NetGameShared.Ecs.Systems.Collision
                     var entity1Rect = registry.GetComponentUnsafe<Comps.Shapes.Rectangle>(entity1);
                     var entity2Rect = registry.GetComponentUnsafe<Comps.Shapes.Rectangle>(entity2);
 
+                    var entity2Orientation = registry
+                        .GetComponentUnsafe<Comps.Orientations.Cardinal>(entity2);
+
                     if (!entity1.Equals(entity2) &&
                         CheckCollision(
-                            entity1Rect.data, entity1Pos.data,
-                            entity2Rect.data, entity2Pos.data
+                            entity1Rect.data, entity1Pos.data, entity1Orientation.data,
+                            entity2Rect.data, entity2Pos.data, entity2Orientation.data
                         )
                     ) {
                         var entity1Solid = registry.GetComponentUnsafe<Comps.Solid>(entity1);

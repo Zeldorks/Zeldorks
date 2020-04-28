@@ -15,11 +15,12 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
     {
         private static Physical.Rectangle GetShape(Comps.Character.Kind kind)
         {
+            var players = Comps.Character.KindRanges.players;
             switch (kind) {
-                case Comps.Character.Kind.Link:
+                case var k when k >= players.start && k <= players.end:
                     return new Physical.Rectangle(64.0f, 64.0f);
                 case Comps.Character.Kind.Aquamentus:
-                    return new Physical.Rectangle(128.0f, 128.0f);
+                    return new Physical.Rectangle(96.0f, 128.0f);
                 case Comps.Character.Kind.Zol:
                     return new Physical.Rectangle(64.0f, 64.0f);
                 case Comps.Character.Kind.Goriya:
@@ -101,11 +102,12 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
         private static Comps.Inventory GetInventory(Comps.Character.Kind kind)
         {
             var result = new Comps.Inventory();
+            var players = Comps.Character.KindRanges.players;
 
             switch (kind) {
-                case Comps.Character.Kind.Link:
+                case var k when k >= players.start && k <= players.end:
                 case Comps.Character.Kind.Aquamentus:
-                    result.data[Comps.Item.Kind.Heart].Count = 5;
+                    result.data[Comps.Item.Kind.Heart].Count = 6;
                     result.data[Comps.Item.Kind.Rupee].Count = 10;
                     break;
                 case Comps.Character.Kind.Wallmaster:
@@ -186,6 +188,15 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
                     clientId = clientId
                 }
             );
+
+            registry.AssignComponent(
+                result,
+                new Comps.Invulnerability
+                {
+                    isInvulnerable = false,
+                    ticks = 0
+                }
+            ) ;
             return result;
         }
         public static Entity CreateEnemy(
@@ -198,6 +209,17 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Factories
                 result,
                 GetAutonomous(kind)
             );
+            registry.AssignComponent(
+                result,
+                new Comps.Damaging
+                {
+                    damage = 1,
+                    attackerId=0
+                }
+
+            );
+
+           
             return result;
         }
     }

@@ -9,6 +9,15 @@ namespace NetGameShared.Ecs.Components
         public enum Kind
         {
             Link,
+            BlueLink,
+            PurpleLink,
+            RedLink,
+            OrangeLink,
+            WhiteLink,
+            BlackLink,
+            YellowLink,
+            TealLink,
+            PinkLink,
             Aquamentus,
             Zol,
             Goriya,
@@ -26,7 +35,7 @@ namespace NetGameShared.Ecs.Components
 
             // TODO: Add more player characters (e.g. colored Link variants)
             public static (Kind start, Kind end) players =
-                (Kind.Link, Kind.Link);
+                (Kind.Link, Kind.PinkLink);
 
             public static (Kind start, Kind end) enemies =
                 (Kind.Aquamentus, Kind.Wallmaster);

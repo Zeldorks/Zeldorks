@@ -55,7 +55,7 @@ namespace NetGameClient.GameNS.WorldNS.EcsExt.Systems.ToVisible
                             return new CompsExt.Visibles.Sprite
                             {
                                 texture = contentManager.Load<Texture2D>("Sprites/Items"),
-                                texturePosRectangle = new DrawingPosRectangle(16, 32, 16, 16),
+                                texturePosRectangle = new DrawingPosRectangle(16, 32, 15, 16),
                                 destRectangle = new Drawing.Rectangle(16 * 4, 16 * 4),
                                 rotation = (float)Math.PI / 2,
                                 destOffset = new DrawingVector(-16 * 4, 0)

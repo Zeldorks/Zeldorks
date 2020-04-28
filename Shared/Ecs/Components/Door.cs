@@ -20,7 +20,6 @@ namespace NetGameShared.Ecs.Components
             return base.ToString() +
                 ": { kind: " + kind + " }";
         }
-
         public void Serialize(NetDataWriter writer)
         {
             writer.Put((int)kind);
@@ -45,7 +44,6 @@ namespace NetGameShared.Ecs.Components
         {
             return door != null && door.kind == this.kind;
         }
-
         public object Clone()
         {
             return new Door

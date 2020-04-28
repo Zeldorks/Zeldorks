@@ -132,7 +132,7 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Systems
         public static void Run(Registry registry, Game game)
         {
             HashSet<Entity> entities = registry.GetEntities(
-                typeof(Comps.Damaged)
+                typeof(Comps.DamagedByPlayer)
             );
 
             // Queue entities to remove so we aren't removing entities while
@@ -143,7 +143,7 @@ namespace NetGameServer.GameNS.WorldNS.EcsExt.Systems
             Queue<(Entity, Entity)> toKill = new Queue<(Entity, Entity)>();
 
             foreach (Entity entity in entities) {
-                var damagedComp = registry.GetComponentUnsafe<Comps.Damaged>(entity);
+                var damagedComp = registry.GetComponentUnsafe<Comps.DamagedByPlayer>(entity);
 
                 // Assume that all entities with a `Damaged` component also has
                 // an `Inventory` component

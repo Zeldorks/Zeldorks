@@ -9,7 +9,10 @@
     <Import_RootNamespace>NetGameShared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\Velocity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\Invulnerability.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\Systems\CharacterAttack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ecs\Systems\Collision\EnemyHitsPlayer.cs" />
     <Compile Include="..\Shared\Ecs\Components\Door.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\Systems\Collision\UnlockDoor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Net\Protocol\Serialization\Collections.cs" />
@@ -17,7 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Util\Config.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Constants\Server\Timing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\Autonomous.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\Damaged.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\DamagedByPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\Damaging.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\Inventory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\Item.cs" />
@@ -27,7 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\Playable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\Projectile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\Solid.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\Velocity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ecs\Components\ReturnVelocity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\EntityOption.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\INetComponent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ecs\Systems\CharacterOrientation.cs" />
