@@ -5,6 +5,8 @@ This project is a multiplayer game based on the original Zelda game from the 198
 Explore the dungeon, kill enemies and other players, and collect keys to
 unlock the path to the Triforce Shard!
 
+![Screenshot](Documentation/Screenshot.png)
+
 ## Features
 
 - Networked multiplayer support
